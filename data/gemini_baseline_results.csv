@@ -1,0 +1,33 @@
+customer_tweet_id,customer_text,actual_intent,predicted_intent,actual_escalation,predicted_escalation
+2004305,"@applesupport so y’all just not gon fix these boxes?",general_support,general_support,auto,human
+879308,"@AppleSupport I am speaking to apple support on the phone No Luck yet",general_support,general_support,human,human
+874779,"Why won’t my phone auto lock?!! @AppleSupport and yes auto lock is turned on for 30seconds 😩",device_performance,device_performance,human,auto
+798835,"@116333 @115858 @115948 I lost my AirPods charging case lifestyle went back to centuries ago, can you send me a new one? 😁 https://t.co/Qi9DFb017L",hardware_issue,product_order_issue,human,human
+556144,"@AppleSupport The quality of the photo is greatly degraded after changing the key frame and has been since the iOS 11 betas. Useless feature, IMHO.",ios_update_issue,ios_update_issue,human,auto
+1550823,"@115858 THIS UPDATE SUCKS!! IF IT CHANGES MY I TO ANOTHER QUESTION MARK EMOJI IM GONNA LOSE IT!!!!!",ios_update_issue,ios_update_issue,auto,auto
+541136,"@AppleSupport my iPhone 7 Plus keeps restarting. What should I do? It’s up to date completely?",device_performance,hardware_issue,human,human
+1188116,"@AppleSupport iPhone 7 across all email accounts on the mail app. And the device has been restarted",app_issue,app_issue,human,auto
+849941,"@115858 your #highsierra sucks! I lost a whole day work because since the update my MacBook Air keeps turning off.",ios_update_issue,hardware_issue,human,human
+1632396,"My phone refuses to cool down since the new iOS update. @115858 is clearly wanting me to upgrade 🙄.",device_performance,ios_update_issue,human,human
+872728,"Desde que actualicé a iOS 11 el teléfono está re lento, mas que nada cuando escribo. Gracias @AppleSupport",ios_update_issue,device_performance,human,auto
+865900,"@AppleSupport I have a problem with a print product I ordered through Photos for Mac OS, what’s the best point of contact?",product_order_issue,product_order_issue,human,human
+768160,"@AppleSupport the battery drainage on iOS 11.1 is terrible. Please fix this.",battery_issue,battery_issue,human,auto
+1074248,"I'd really appreciate if my Macbook Pro would stop electrocuting me whilst charging... @115858",hardware_issue,hardware_issue,human,human
+810176,"Ffs constantly my iphone is spasming out or just freezes ...doing my head in @AppleSupport any chance you sort the bugs out and do an update",device_performance,device_performance,human,auto
+857948,"Please @AppleSupport I really need to stop saying the celebrity borefests and casual sexism of The Sun in my top or trending stories.",app_issue,app_issue,auto,auto
+1451845,"@AppleSupport well the new update is not letting me facetime, my friends and I'm getting really mad",ios_update_issue,ios_update_issue,human,auto
+53614,"@AppleSupport Sorry, the problem is in 11.1, not 11.0.",ios_update_issue,ios_update_issue,auto,auto
+1616685,".@AppleSupport why’s my keyboard messed up yo",device_performance,hardware_issue,auto,auto
+1078301,"@AppleSupport I’ve tried everything I’m taking it to the Apple store tomorrow to see if they can fix it",general_support,hardware_issue,human,human
+1453840,"@AppleSupport iPhone 7",general_support,general_support,human,auto
+1287649,"@AppleSupport iPhone 7plus",general_support,general_support,human,auto
+1287653,"huge s/o to @115858 for 0 support on my completely frozen phone that's been frozen for almost 2 hrs @applesupport",device_performance,device_performance,human,human
+297995,"@179986 @115858 my twitter app never crashed at all ! &amp; now i cant even open it without it actin dumb 😒",app_issue,app_issue,human,auto
+36084,"@115858 @AppleSupport @116333 What Is going on with the #Iphone, it is very unresponsive and has a lot of lag #iphone6SPlus and #iphone8",device_performance,device_performance,human,auto
+670356,"Why does my iPhone keep restarting every 30 seconds @115858 @AppleSupport",device_performance,hardware_issue,human,human
+711139,"I can't hear calls on my iPhone. WTF @AppleSupport ? It worked fine yesterday. @1647 about to get a new customer",hardware_issue,hardware_issue,human,human
+1096894,"@AppleSupport Today after updating software. Happens no matter what I try to look for. Also can’t select an address in my calendar ap...",ios_update_issue,ios_update_issue,human,human
+26675,"Sooooooo is @115858 ever going to fix this annoying glitch for when I type the letter I️ it does that annoying box with the ? Thing! This is stupid. I️m just going to switch over to Android soon.",ios_update_issue,ios_update_issue,auto,auto
+1095212,"@115858 @AppleSupport I received this email and it’s fake. https://t.co/SJU8Ym08jy",general_support,payment_account_issue,human,human
+1458789,"@AppleSupport Idek, at this point I️ get a notification for an update literally every week. Problematic.",general_support,ios_update_issue,auto,auto
+556041,"@AppleSupport I have this exclamation mark in the left bottom and the picture is blurred",app_issue,hardware_issue,human,human
