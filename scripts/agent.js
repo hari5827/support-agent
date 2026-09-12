@@ -76,6 +76,7 @@ ${evidenceText}
     const response = await client.chat.completions.create({
         model: MODEL,
         temperature: 0.2,
+
         response_format: {
             type: "json_schema",
             json_schema: {
@@ -96,11 +97,16 @@ ${evidenceText}
                             type: "string"
                         }
                     },
-                    required: ["intent", "escalation", "reply"],
+                    required: [
+                        "intent",
+                        "escalation",
+                        "reply"
+                    ],
                     additionalProperties: false
                 }
             }
         },
+
         messages: [
             {
                 role: "system",
@@ -113,13 +119,16 @@ ${evidenceText}
         ]
     });
 
-    const result = JSON.parse(response.choices[0].message.content);
+    const result = JSON.parse(
+        response.choices[0].message.content
+    );
 
     return {
         ...result,
         evidence
     };
 }
+
 
 async function main() {
     const testMessages = [
@@ -142,12 +151,25 @@ async function main() {
             console.log("\nEVIDENCE:");
 
             result.evidence.forEach((item, index) => {
-                console.log(`${index + 1}. ${item.customer_text}`);
+                console.log(
+                    `${index + 1}. ${item.customer_text}`
+                );
             });
+
         } catch (error) {
-            console.error("Agent error:", error.message);
+            console.error(
+                "Agent error:",
+                error.message
+            );
         }
     }
 }
 
-main();
+
+// This allows evaluateAgent.js to import runAgent()
+// without automatically running the test messages.
+module.exports = { runAgent };
+
+if (require.main === module) {
+    main();
+}
