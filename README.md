@@ -176,7 +176,7 @@ The 200 Golden Set examples were sampled directly from `data/apple_conversations
 
 ## Why the headline escalation accuracy is misleading
 
-40.50% overall escalation accuracy looks like a coin-flip-level failure, but the confusion is asymmetric, not random: **AUTO recall is 90.3%**, meaning the agent almost always predicts `auto`, while **HUMAN recall is only 18.1%** — it correctly escalates fewer than 1 in 5 cases that actually need a human. A support system that's *too cautious* (over-escalating) is annoying but safe; a system that *under-escalates* payment, order, and safety-risk cases is the more dangerous failure mode, because it silently lets those cases get an automated response instead of a human one. **HUMAN recall (18.1%) is the single most important number in this evaluation**, and it's currently the system's clearest weakness — well below the LLM-only baseline's 44.7% HUMAN F1.
+40.50% overall escalation accuracy looks poor, but the error is strongly asymmetric rather than random: **AUTO recall is 90.3%**, meaning the agent almost always predicts `auto`, while **HUMAN recall is only 18.1%** — it correctly escalates fewer than 1 in 5 cases that actually need a human. A support system that's *too cautious* (over-escalating) is annoying but safe; a system that *under-escalates* payment, order, and safety-risk cases is the more dangerous failure mode, because it silently lets those cases get an automated response instead of a human one. **HUMAN recall (18.1%) is the single most important number in this evaluation**, and it's currently the system's clearest weakness — well below the LLM-only baseline's 44.7% HUMAN F1.
 
 ## Reply quality (LLM-as-judge, 1–5 scale, all 200 replies)
 
@@ -238,7 +238,7 @@ These were selected via `scripts/failureAnalysis.js`, which prints curated bucke
 ## Decision log
 
 1. Selected AppleSupport as the target brand for its combination of high reply volume (106,860 extracted replies) and a bounded, device/software-centric problem space suited to a small intent taxonomy.
-2. Built customer↔support *pairs* (`buildConversations.js`), not isolated tweets, so retrieval evidence includes a real historical resolution, not just a complaint.
+2. Built customer↔support pairs (buildConversations.js), not isolated tweets, so retrieval evidence contains both the historical customer problem and the corresponding AppleSupport response.
 3. Sampled 200 pairs at random for the Golden Set to keep manual labeling tractable within the assignment's scope, accepting the resulting class imbalance as a tradeoff.
 4. Labeled each example by a single **primary** intent rather than multi-label, via a custom interactive CLI tool (`labelGoldenSet.js`) with back/edit support.
 5. Defined 8 intent classes with explicit written definitions embedded directly in the classification prompts, rather than leaving categories to model judgment alone.
@@ -248,7 +248,7 @@ These were selected via `scripts/failureAnalysis.js`, which prints curated bucke
 9. Constrained the agent's LLM output with a strict JSON schema (`response_format: json_schema`) instead of free-text parsing, to make automated intent/escalation scoring reliable.
 10. Wrote explicit "grounding rules" into the agent's system prompt instructing it not to claim it can refund, forward, replace, or investigate anything, and not to invent policies or URLs.
 11. Implemented two baselines — a rule-based keyword classifier and a no-retrieval LLM classifier — specifically to test whether retrieval grounding helps, rather than assuming it would.
-12. Switched the LLM provider from Gemini to Groq mid-project (visible from the leftover `gemini_baseline_results.csv` and the Groq-specific script naming), reportedly after hitting Gemini quota limits during repeated evaluation runs.
+12. Used Groq with openai/gpt-oss-20b after Gemini quota limits made repeated evaluation impractical, prioritizing a reproducible provider/model setup for the remaining experiments.
 13. Fixed Golden Set retrieval leakage by excluding Golden Set `customer_tweet_id`s from TF-IDF results at evaluation time (`retriever.js`'s `setExcludedIds`), rather than physically removing them from the corpus file, so the corpus itself stays reusable outside evaluation.
 14. Used the same LLM as an automated reply-quality judge across 4 rubric dimensions (relevance, grounding, helpfulness, appropriateness), then deliberately cross-checked it against 110 independently human-scored replies rather than trusting the LLM judge alone.
 15. Used unweighted Cohen's kappa on rounded 1–5 overall scores for human-vs-LLM agreement, accepting that it treats near-misses and large misses equally rather than implementing a weighted variant.
