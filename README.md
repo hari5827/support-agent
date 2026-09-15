@@ -3,6 +3,17 @@
 A retrieval-grounded customer-support system built on the [Customer Support on Twitter (TWCS)](https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter) dataset. Given an incoming customer message, the system classifies the intent, decides whether the case can be handled automatically or needs a human, and drafts a reply grounded in real historical AppleSupport conversations — all in a single constrained-JSON LLM call.
 
 **Brand:** AppleSupport · **Golden Set:** 200 manually labeled examples · **LLM:** Groq `openai/gpt-oss-20b`
+> [!IMPORTANT]
+> **API KEY / RATE-LIMIT NOTE**
+>
+> This project uses **two separate Groq API keys** for different stages of the evaluation:
+>
+> - `GROQ_API_KEY` → used by `agent.js` and `groqBaseline.js`
+> - `GROQ_EVAL_API_KEY` → used by `evaluateReplies.js` for LLM-based reply evaluation
+>
+> A separate evaluation key was used because the primary Groq API key reached its rate limit during the full evaluation runs.
+>
+> **No API keys are included in this repository.** Set your own Groq API keys in `.env` before running the scripts.
 
 ## Problem statement
 
