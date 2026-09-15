@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const csv = require("csv-parser");
 const { runAgent } = require("./agent");
+const { setExcludedIds } = require("./retriever");
 
 const inputFile = path.join(
     __dirname,
@@ -170,6 +171,11 @@ async function main() {
     const goldenSet = await loadGoldenSet();
 
     console.log(`Loaded ${goldenSet.length} examples.`);
+    const goldenSetIds = goldenSet
+        .map((row) => row.customer_tweet_id || row.tweet_id || "")
+        .filter(Boolean);
+
+    setExcludedIds(goldenSetIds);
 
     for (let i = 0; i < goldenSet.length; i++) {
         const row = goldenSet[i];
